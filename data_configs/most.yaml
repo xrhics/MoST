@@ -1,0 +1,65 @@
+to_stdout: True
+records: ./Run/records
+model_name: MoST
+
+
+data:
+  batch_size: 16
+  state: [1,1,1,1]
+  num_modality: 4
+  interval: 1    # Sampling frequency
+  root_path: datasets
+  num_workers: 2
+  pin_memory: False
+  persistent_workers: False
+  dataset_map: ["gla","sd","gba","Taxi_NYC","Taxi_Chicago"] 
+  train_dataset_list: ["gla","sd","gba","Taxi_NYC"]
+  val_dataset_list: ["Taxi_Chicago"]    
+  test_dataset_list: ["Taxi_Chicago"]   
+  data_avaliage: {"poi":1, "map":1, "satellite":1, "location":1}
+
+model:
+  seq_len:  960
+  pred_len: 288
+  # actual_len: 12
+  poi_dim: 768
+  satellite_dim: 1000
+  map_dim: 1000
+  loc_dim: 2
+  mm_num_layers: 1
+  num_experts: 4
+  top_k: 1
+
+  encoder:
+    dim: 128
+    num_heads: 4
+    num_layers: 3
+  decoder:
+    dim: 128
+    num_heads: 4
+    num_layers: 1  
+  MM:
+    vocab_size: 128
+    hidden_dim: 128
+    patch: 96
+    stride: 96
+
+
+  loss: None
+
+train:
+  lr: 0.0004   #0.0005
+  epochs: 60
+  eta_min: 0.0
+  patience: 12
+  log_every: 5
+  itr: 60
+  lradj: 'default'
+  pct_start: 0.4
+  alpha: 1
+  lr_decay_ratio: 0.1
+  swanlab_mode: "cloud"
+
+
+GPU: 
+  use_gpu: True
