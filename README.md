@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 ### Datasets
-The traffic datasets can be obtained from the [Urban-Dataset](https://github.com/uctb/Urban-Dataset/tree/main) and [LargrST](https://www.kaggle.com/datasets/liuxu77/largest). The POI dataset can be obtained from [Foursquare](https://huggingface.co/datasets/foursquare/fsq-os-places). Satellite imagery is obtained from Google Earth Engine.
+The traffic datasets can be obtained from the [Urban-Dataset](https://github.com/uctb/Urban-Dataset/tree/main) and [LargrST](https://www.kaggle.com/datasets/liuxu77/largest). The POI dataset can be obtained from [Foursquare](https://huggingface.co/datasets/foursquare/fsq-os-places). Satellite imagery is obtained from Google Earth.
 
 ### Running
 
